@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Quiz de Ciencias</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
 </head>
 <body>
 <div class="app">
     <h1>Cuestionario de Ciencias</h1>
     <div class="quiz">
-        <h2 id="question">Question goes here</h2>
-        <div id="answer-buttons"></div>
+    <div class="timer">
+        Tiempo restante: <span id="timer">15</span> segundos
     </div>
-    <button id="next-btn">Next</button>
+
+    <h2 id="question">Question goes here</h2>
+    <img id="question-image" class="question-image"
+     src="" alt="" style="display: none;">
+     
+    <div id="answer-buttons" class="answer-grid"></div>
+
+
+<div id="leaderboard" hidden></div>
+
+<button id="next-btn">Next</button>
+
+<button id="home-btn" onclick="window.location.href='index.html'">
+    Volver al inicio
+</button>
 </div>
-    
+
+<img
+    src="imagenes/personaje.png"
+    alt="Ayudante del cuestionario"
+    class="quiz-character"
+    id = "presentador"
+>
 
 <script src="script.js"></script>
 </body>
