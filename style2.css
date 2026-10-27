@@ -321,59 +321,178 @@ body {
     }
 }
 
-/* Ajustes para celulares */
 @media (max-width: 600px) {
+
     body {
-        padding: 10px;
+        padding: 8px;
+        min-height: 100vh;
     }
 
+    /* Contenedor principal */
     .app {
         width: 100%;
-        margin: 10px auto;
-        padding: 18px;
+        max-width: none;
+        margin: 5px auto;
+        padding: 22px 16px;
+        border-radius: 12px;
     }
 
+    /* Título principal */
     .app h1 {
-        font-size: 24px;
-        padding-bottom: 15px;
+        font-size: 28px;
+        line-height: 1.3;
+        padding-bottom: 18px;
+        margin-bottom: 15px;
     }
 
+    /* Área del cuestionario */
+    .quiz {
+        padding: 12px 0;
+    }
+
+    /* Pregunta */
     .quiz h2 {
-        font-size: 21px;
+        font-size: 25px;
+        line-height: 1.45;
+        margin-bottom: 20px;
     }
 
+    /* Temporizador */
     .timer {
-        font-size: 18px;
+        font-size: 21px;
+        margin-bottom: 22px;
     }
 
+    /* Imagen de la pregunta */
+    .question-image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 240px;
+        margin: 18px auto 25px;
+        object-fit: contain;
+    }
+
+    /* Respuestas */
     #answer-buttons {
         grid-template-columns: 1fr;
         grid-template-rows: none;
-        gap: 10px;
+        gap: 14px;
+        margin-top: 22px;
     }
 
+    /* Botones de respuesta */
     #answer-buttons .btn {
-        font-size: 19px;
-        min-height: 65px;
-        padding: 14px;
+        width: 100%;
+        min-height: 85px;
+        padding: 18px 14px;
+        font-size: 22px;
+        line-height: 1.4;
+        border-radius: 10px;
     }
 
+    /* Botón siguiente */
     #next-btn {
-        font-size: 18px;
-        min-height: 48px;
+        width: 100%;
+        max-width: 300px;
+        min-height: 58px;
+        margin: 25px auto 0;
+        font-size: 22px;
     }
 
-    .question-image {
-        max-height: 180px;
+    /* Botón volver al inicio */
+    #home-btn {
+        width: 100%;
+        max-width: 300px;
+        min-height: 55px;
+        margin: 15px auto 0;
+        font-size: 20px;
     }
 
+    /* Tabla de clasificación */
+    #leaderboard table {
+        font-size: 16px;
+    }
+
+    #leaderboard th,
+    #leaderboard td {
+        padding: 10px 5px;
+    }
+
+    #leaderboard h2 {
+        font-size: 24px;
+    }
+
+    /* Formulario de puntajes */
+    .score-form {
+        width: 100%;
+        padding: 0;
+    }
+
+    .score-form label {
+        font-size: 20px;
+    }
+
+    .score-form input,
+    .score-form button {
+        font-size: 19px;
+        min-height: 52px;
+    }
+
+    .score-form p {
+        font-size: 17px;
+    }
+
+    /* Puntos ganados */
+    .points-earned,
+    #answer-buttons .correct-answers {
+        font-size: 19px;
+    }
+
+    /* Personaje */
     .quiz-character {
-        width: 80px;
-        max-height: 16vh;
-        right: 3px;
+        position: fixed;
+        width: 115px;
+        max-width: 30vw;
+        max-height: 22vh;
+        right: 0;
+        bottom: 0;
+        object-fit: contain;
+        object-position: bottom right;
+        z-index: 10;
+        pointer-events: none;
+        filter: drop-shadow(0 0 18px rgba(100, 180, 255, 0.8));
     }
 }
 
+/* Celulares especialmente estrechos */
+@media (max-width: 380px) {
+
+    .app {
+        padding: 18px 12px;
+    }
+
+    .app h1 {
+        font-size: 25px;
+    }
+
+    .quiz h2 {
+        font-size: 22px;
+    }
+
+    #answer-buttons .btn {
+        font-size: 20px;
+        min-height: 78px;
+    }
+
+    .timer {
+        font-size: 19px;
+    }
+
+    .quiz-character {
+        width: 90px;
+        max-height: 18vh;
+    }
+}
 #answer-buttons .score-form {
     grid-column: 1 / -1;
     width: 100%;
