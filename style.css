@@ -136,6 +136,9 @@ body {
     align-items: flex-end;
     order: -1;
     overflow: visible;
+
+    /* Mantener las imágenes delante del contenedor */
+    z-index: 4;
 }
 
 .luz {
