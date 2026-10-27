@@ -294,6 +294,29 @@ body {
     filter: drop-shadow(0 0 40px rgba(100, 180, 255, 0.8));
 }
 
+#answer-buttons .score-form {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+}
+
+#answer-buttons .correct-answers {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
 /* Ajustes para tablets y pantallas medianas */
 @media (min-width: 601px) and (max-width: 1024px) {
     .app {
@@ -320,6 +343,9 @@ body {
         max-height: 23vh;
     }
 }
+
+
+
 
 @media (max-width: 600px) {
 
@@ -492,26 +518,4 @@ body {
         width: 90px;
         max-height: 18vh;
     }
-}
-#answer-buttons .score-form {
-    grid-column: 1 / -1;
-    width: 100%;
-    max-width: 500px;
-    justify-self: center;
-    margin: 20px auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    text-align: center;
-}
-
-#answer-buttons .correct-answers {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin: 10px 0;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: #fff;
 }
