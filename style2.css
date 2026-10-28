@@ -338,9 +338,9 @@ body {
         padding: 16px;
     }
 
-    .quiz-character {
-        width: 120px;
-        max-height: 23vh;
+.quiz-character {
+    width: 160px;
+    max-height: 30vh;
     }
 }
 
