@@ -522,23 +522,19 @@ body {
 
 @keyframes movimientoPersonaje {
     0% {
-        transform: translateX(0);
+        transform: translateX(-15px);
     }
 
-    25% {
-        transform: translateX(-10px);
-    }
-
-    75% {
-        transform: translateX(10px);
+    50% {
+        transform: translateX(15px);
     }
 
     100% {
-        transform: translateX(0);
+        transform: translateX(-15px);
     }
 }
 
 .quiz-character {
-    animation: movimientoPersonaje 4s ease-in-out infinite;
+    animation: movimientoPersonaje 3s ease-in-out infinite;
+    will-change: transform;
 }
-
