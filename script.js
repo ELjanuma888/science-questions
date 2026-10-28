@@ -276,7 +276,7 @@ const preguntasDificil = [
         imagen: "imagenes/img-abejaflor-dificil.jpg"
     },
     {
-        question: "Una resistencia de 6 W se conecta a una batería de 12 V. ¿cuánta potencia eléctrica consume?",
+        question: "Una resistencia de 6 ohmios se conecta a una batería de 12 voltios. ¿cuánta potencia eléctrica consume?",
         answers: [
             { text: "2 W", correct: false},
             { text: "12 W", correct: false},
@@ -307,15 +307,10 @@ const preguntasDificil = [
     }
 ];
 
-// const questions = [
-       
-//];
 
-// Identificar el nivel seleccionado en el menú
 const parametros = new URLSearchParams(window.location.search);
 const nivel = parametros.get("nivel") || "facil";
 
-// Seleccionar las preguntas del nivel correspondiente
 const bancosDePreguntas = {
     facil: preguntasFacil,
     medio: preguntasMedio,
@@ -324,7 +319,6 @@ const bancosDePreguntas = {
 
 const bancoSeleccionado = bancosDePreguntas[nivel] || preguntasFacil;
 
-// Mezclar las preguntas y seleccionar 5 al azar
 function seleccionarPreguntasAleatorias(banco, cantidad) {
     const preguntasMezcladas = [...banco];
 
@@ -338,7 +332,6 @@ function seleccionarPreguntasAleatorias(banco, cantidad) {
     return preguntasMezcladas.slice(0, cantidad);
 }
 
-// Estas serán las 5 preguntas de la partida
 let questions = seleccionarPreguntasAleatorias(bancoSeleccionado, 5);
 
 const questionElement = document.getElementById("question");
@@ -354,6 +347,43 @@ let score = 0;
 let timeLeft = 15;
 let timerInterval;
 let answered = false;
+
+let countdownInterval;
+
+const countdownScreen = document.getElementById("countdown-screen");
+const countdownNumber = document.getElementById("countdown-number");
+
+// Mostrar PREPÁRATE y contar de 3 a 1
+function iniciarCuentaRegresiva() {
+    clearInterval(timerInterval);
+    clearInterval(countdownInterval);
+
+    let numero = 3;
+
+    countdownScreen.hidden = false;
+    countdownNumber.textContent = numero;
+
+    countdownInterval = setInterval(() => {
+        numero--;
+
+        if (numero > 0) {
+            countdownNumber.textContent = numero;
+
+            // Reiniciar la animación de cada número
+            countdownNumber.style.animation = "none";
+            void countdownNumber.offsetWidth;
+            countdownNumber.style.animation = "aparecerNumero 0.8s ease";
+
+        } else {
+            clearInterval(countdownInterval);
+
+            countdownScreen.hidden = true;
+
+            // Mostrar la primera pregunta
+            showQuestion();
+        }
+    }, 1000);
+}
 
 const presentador = document.getElementById("presentador");
 
@@ -375,6 +405,7 @@ const STORAGE_KEY = "quizCienciasTop10_" + nivel;
 // Iniciar el cuestionario
 function startQuiz() {
     clearInterval(timerInterval);
+    clearInterval(countdownInterval);
 
     currentQuestionIndex = 0;
     questions = seleccionarPreguntasAleatorias(bancoSeleccionado, 5);
@@ -386,7 +417,7 @@ function startQuiz() {
     leaderboardElement.hidden = true;
     homeButton.style.display = "none";
 
-    showQuestion();
+    iniciarCuentaRegresiva();
 }
 
 // Mostrar pregunta
@@ -792,3 +823,4 @@ nextButton.addEventListener("click", () => {
 
 // Iniciar el juego
 startQuiz();
+
